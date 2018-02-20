@@ -16,18 +16,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); // générateur de template
 
 
-
-
-fs.readFile('ex.txt', (err, resultat) => {
-	if(err) console.log(err);
-	console.log('********************************');
-	console.log(peupler());
-});
-
-
-
-
-
 app.get('/vider', function (req, res) {
 	console.log(__dirname);
 	
@@ -104,7 +92,6 @@ app.get('/trier/:cle/:ordre', function (req, res) {
 		} else {
 			ordre = 'asc';
 		}
-		//ordre == 1 ? 'asc' : 'desc';
 
 		console.log('util = ' + util.inspect(resultat));
  		res.render('membres.ejs', {membres: resultat, ordre_url:ordre});
@@ -127,10 +114,7 @@ app.get('/ajouter', function (req, res) {
 
 app.get('/supprimer/:id', (req, res) => {
  console.log(req.params.id)
- //console.log(res)
  var id = req.params.id
-console.log('***************************');
- console.log(id)
  db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
 if (err) return console.log(err)
