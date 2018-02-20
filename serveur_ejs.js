@@ -28,7 +28,16 @@ fs.readFile('ex.txt', (err, resultat) => {
 
 
 
+app.get('/vider', function (req, res) {
+	console.log(__dirname);
+	
+	db.collection('adresse').remove({}, (err, resultat) => {
+		if (err) return console.log(err)
+		console.log('Supprimé');
+		res.redirect('/membres');
+	});
 
+})
 
 
 app.get('/peuplement', function (req, res) {
@@ -45,9 +54,7 @@ app.get('/peuplement', function (req, res) {
 		})
 	}
 
-			res.redirect('/membres')
-	//res.redirect('/membres');
-
+	res.redirect('/membres');
 })
 
 
