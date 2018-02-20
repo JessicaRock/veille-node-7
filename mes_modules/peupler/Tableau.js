@@ -1,15 +1,4 @@
 "use strict";
-let tableau = [
-	"Mercier",
-	"Châteauguay",
-	"Léry",
-	"Beauharnois",
-	"Valleyfield",
-	"Ormstown",
-	"Howick",
-	"Sainte-Catherine",
-	"Brossard"
-];
 
 let courriel = [
 	"gmail.com",
@@ -51,7 +40,6 @@ let nom = [
 	"Huot"
 ];
 
-//module.exports = tableau;
 module.exports.courriel = courriel;
 module.exports.prenom = prenom;
 module.exports.nom = nom;
