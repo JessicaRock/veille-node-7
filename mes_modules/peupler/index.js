@@ -1,8 +1,6 @@
 "use strict";
 const nbEnreg = 10;
 const tableaux = require('./Tableau.js');
-//const max = tableaux.prenom;
-//console.log('max = ' + max);
 
 const peupler_json = () => {
 	console.log('ok');
@@ -31,10 +29,6 @@ const peupler_json = () => {
 		}
 
 		aoNouvPers[i]['telephone'] = tel;
-
-
-
-		//tabVille.push(tableau[position]);
 
 	}
 
