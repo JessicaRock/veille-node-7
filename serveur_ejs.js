@@ -7,7 +7,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 const peupler = require('./mes_modules/peupler');//./mes_modules/peupler/index.js
 
-var util = require("util");
+const util = require("util");
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -58,7 +58,7 @@ app.get('/formulaire', function (req, res) {
 })
 
 app.get('/membres', (req, res) => {
-	var cursor = db.collection('adresse').find().toArray(function(err, resultat){
+	let cursor = db.collection('adresse').find().toArray(function(err, resultat){
 		 if (err) return console.log(err)
 		 console.log('util = ' + util.inspect(resultat));
 		 // transfert du contenu vers la vue gabarit.ejs (renders)
@@ -114,7 +114,7 @@ app.get('/ajouter', function (req, res) {
 
 app.get('/supprimer/:id', (req, res) => {
  console.log(req.params.id)
- var id = req.params.id
+ let id = req.params.id
  db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
 if (err) return console.log(err)
@@ -128,7 +128,7 @@ app.post('/modifier', function (req, res) {
  console.log('la route /modifier')
 
  console.log('sauvegarde') 
- var oModif = {
+ let oModif = {
  "_id": ObjectID(req.body['_id']),
  nom: req.body.nom,
  prenom:req.body.prenom, 
