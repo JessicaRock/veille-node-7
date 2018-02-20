@@ -7,7 +7,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 const peupler = require('./mes_modules/peupler');//./mes_modules/peupler/index.js
 
- var util = require("util");
+var util = require("util");
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -17,8 +17,10 @@ app.set('view engine', 'ejs'); // générateur de template
 
 
 
+
 fs.readFile('ex.txt', (err, resultat) => {
 	if(err) console.log(err);
+	console.log('********************************');
 	console.log(peupler());
 });
 
@@ -30,12 +32,28 @@ fs.readFile('ex.txt', (err, resultat) => {
 
 
 app.get('/peuplement', function (req, res) {
- console.log(__dirname);
- let aoNouvAdd = peupler();
- console.log(aoNouvAdd);
- res.render('membres.ejs');
+	console.log(__dirname);
+	let aoNouvAdd = peupler();
+	console.log(aoNouvAdd);
+
+	let iLongueur = aoNouvAdd.length;
+	for(let i = 0; i<iLongueur; i++) {
+		db.collection('adresse').save(aoNouvAdd[i], (err, result) => {
+			if (err) return console.log(err)
+			console.log('sauvegarder dans la BD')
+
+		})
+	}
+
+			res.redirect('/membres')
+	//res.redirect('/membres');
 
 })
+
+
+
+
+
 
 
 app.get('/formulaire', function (req, res) {
@@ -57,7 +75,7 @@ app.get('/membres', (req, res) => {
 
 app.get('/', (req, res) => {
 	console.log('accueil')
-   	res.redirect('accueil.ejs');
+   	res.render('accueil.ejs');
 })
 
 
