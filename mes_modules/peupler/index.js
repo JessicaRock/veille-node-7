@@ -3,7 +3,6 @@ const nbEnreg = 10;
 const tableaux = require('./Tableau.js');
 
 const peupler_json = () => {
-	console.log('ok');
 
 	let aoNouvPers = [];
 	let position, chiffre;
