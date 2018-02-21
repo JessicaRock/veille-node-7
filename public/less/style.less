@@ -14,9 +14,8 @@ body {
 
 	header {
 		display: flex;
-		flex-flow: row;
-		justify-content: space-between;
-		align-items: flex-end;
+		flex-flow: column;
+		align-items: center;
 		width: 90%;
 		padding: 0 55px;
 		border-bottom: 5px solid @bleuFonce;
@@ -26,6 +25,7 @@ body {
 		}
 
 		nav {
+			margin-top: 20px;
 			ul {
 				display: flex;
 				flex-flow: row;
@@ -121,33 +121,53 @@ body {
 			font-size: 20px;
 		}
 	}
-}
 
-.tableau {
-	border-collapse : collapse;
-	tr{
-		td:nth-child(1) {
-			cursor: default;
+	.tableau {
+		border-collapse : collapse;
+		tr{
+			td:nth-child(1) {
+				cursor: default;
+			}
+		}
+
+		td, th {
+			border: 3px solid @bleuFonce;
+			padding: 10px;
+			font-family: Roboto;
+			font-size: 20px;
+			text-align: center;
+			color: @orange;
+			cursor: pointer;
+		}
+
+		td {
+			a {
+				color: @orangeFonce;
+			}
+		}
+
+		th {
+			font-weight: bold;
 		}
 	}
-
-	td, th {
-		border: 3px solid @bleuFonce;
-		padding: 10px;
-		font-family: Roboto;
-		font-size: 20px;
-		text-align: center;
-		color: @orange;
-		cursor: pointer;
-	}
-
-	td {
-		a {
-			color: @orangeFonce;
-		}
-	}
-
-	th {
-		font-weight: bold;
-	}
 }
+
+
+@media screen and (min-width: 950px) {
+  body {
+  	background-color: red;
+
+  	header {
+		flex-flow: row;
+		justify-content: space-between;
+		align-items: flex-end;
+  		nav {
+  			margin-top: 0;
+  		}
+  	}
+
+  }
+}
+
+
+

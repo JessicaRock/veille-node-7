@@ -7,15 +7,17 @@ body {
 }
 body header {
   display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-flow: column;
+  align-items: center;
   width: 90%;
   padding: 0 55px;
   border-bottom: 5px solid #0097b2;
 }
 body header h1 {
   margin-bottom: 0;
+}
+body header nav {
+  margin-top: 20px;
 }
 body header nav ul {
   display: flex;
@@ -97,14 +99,14 @@ body ul li {
   font-family: Roboto;
   font-size: 20px;
 }
-.tableau {
+body .tableau {
   border-collapse: collapse;
 }
-.tableau tr td:nth-child(1) {
+body .tableau tr td:nth-child(1) {
   cursor: default;
 }
-.tableau td,
-.tableau th {
+body .tableau td,
+body .tableau th {
   border: 3px solid #0097b2;
   padding: 10px;
   font-family: Roboto;
@@ -113,9 +115,22 @@ body ul li {
   color: #ff8825;
   cursor: pointer;
 }
-.tableau td a {
+body .tableau td a {
   color: #b2580d;
 }
-.tableau th {
+body .tableau th {
   font-weight: bold;
+}
+@media screen and (min-width: 950px) {
+  body {
+    background-color: red;
+  }
+  body header {
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  body header nav {
+    margin-top: 0;
+  }
 }
