@@ -105,6 +105,9 @@ body .tableau {
 body .tableau tr td:nth-child(1) {
   cursor: default;
 }
+body .tableau tr:nth-child(even) {
+  background-color: red;
+}
 body .tableau td,
 body .tableau th {
   border: 3px solid #0097b2;
