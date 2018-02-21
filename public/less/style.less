@@ -15,7 +15,7 @@ body {
 	header {
 		display: flex;
 		flex-flow: column;
-		align-items: center;
+		align-items: flex-start;
 		width: 90%;
 		padding: 0 55px;
 		border-bottom: 5px solid @bleuFonce;
@@ -25,10 +25,10 @@ body {
 		}
 
 		nav {
-			margin-top: 20px;
+			margin: 20px 0;
 			ul {
 				display: flex;
-				flex-flow: row;
+				flex-flow: column;
 				border: none;
 				padding: 0;
 				margin: 0;
@@ -157,6 +157,18 @@ body {
 @media screen and (min-width: 625px) {
 	body {
 		background-color: green;
+
+		header {
+			align-items: center;
+			nav {
+				margin: 0;
+				margin-top: 20px;
+				ul {
+					flex-flow: row;
+
+				}
+			}
+		}
 	}
 }
 
